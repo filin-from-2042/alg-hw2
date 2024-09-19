@@ -19,6 +19,7 @@ public class BinaryIntSearchTree {
     static class Node {
         Node left;
         Node right;
+        Node parent;
         int value;
 
         public Node(int element) {
@@ -33,6 +34,7 @@ public class BinaryIntSearchTree {
                 //left
                 if (left == null) {
                     left = new Node(element);
+                    left.parent = this;
                     return true;
                 }
                 return left.add(element);
@@ -40,6 +42,7 @@ public class BinaryIntSearchTree {
             //right
             if (right == null) {
                 right = new Node(element);
+                right.parent = this;
                 return true;
             }
             return right.add(element);
